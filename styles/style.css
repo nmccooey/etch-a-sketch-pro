@@ -29,12 +29,36 @@ main {
   margin-top: 10px;
 }
 
+#canvas-size {
+  width: 50px;
+}
+
+.modal {
+  width: 30%;
+}
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 10%;
+  left: 7%;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .grid-container {
   width: 500px;
   height: 500px;
-  border: solid black 1px;
   display: grid;
   grid-template-columns: repeat(16, 1fr);
+  outline: solid black 1px;
+}
+
+.no-outline > * {
+  outline: none !important;
 }
 
 .controls-left {
@@ -64,8 +88,9 @@ main {
 }
 
 .square {
-  border: solid black 1px;
   background-color: white;
+  cursor: pointer;
+  outline: solid black 1px;
 }
 
 footer {

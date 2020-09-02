@@ -29,7 +29,7 @@
           <p>Grid Lines:</p>
           <label>
             Off
-            <input type="checkbox">
+            <input id="grid-line-switch" type="checkbox" checked>
             <span class="lever"></span>
             On
           </label>
@@ -97,10 +97,23 @@
           </p>
         </form>
 
-        <!-- New Canvas Button -->
+        <!-- New Canvas Button Modal Trigger -->
         <div>
-          <p>Delete + Start New:</p>
-          <a id="new-canvas-button" class="waves-effect waves-light btn-small red"><i class="fas fa-trash-alt"></i></a>
+          <p>New Canvas:</p>
+          <a id="new-canvas-button" data-target="modal1" class="waves-effect waves-light btn modal-trigger"><i class="fas fa-plus-square"></i></a>
+        </div>
+      </div>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Choose Canvas Size:</h4>
+          <input id="canvas-size" value="16" type="number" min="16" max="64">
+          <p>*Note: canvas size must be between 16 and 64 pixels.</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="modal-action modal-close btn deep-orange darken-2">Cancel</a>
+          <a id="create-canvas-button" href="#" class="modal-action btn teal lighten-1">Create</a>
         </div>
       </div>
     </main>
