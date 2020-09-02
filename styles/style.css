@@ -1,0 +1,92 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  box-sizing: content-box;
+  background-color: #e3f2fd;
+}
+
+.title {
+  color: #90caf9;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 2px 2px black;
+  margin: 5px;
+  padding: 15px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.grid-container {
+  width: 500px;
+  height: 500px;
+  border: solid black 1px;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+}
+
+.controls-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.controls-left > * {
+  width: 75%;
+}
+
+.controls-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  width: 250px;
+  margin-left: 10px;
+}
+
+.controls-right > * {
+  width: 75%;
+}
+
+.square {
+  border: solid black 1px;
+  background-color: white;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #90caf9;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.copyright {
+  margin: 0;
+}
+
+.fa-github {
+  color: black;
+}
+
+.fa-github:hover {
+  color: white;
+}

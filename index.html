@@ -4,16 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch Pro</title>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Materialize -->
+    <link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles/style.css">
-
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/829b98cafe.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <header>
+      <h1 class="title">Etch-A-Sketch Pro</h1>
+    </header>
+    <main>
+      <div class="controls-left">
+        <!-- Grid Line ON/OFF Switch -->
+        <div class="switch">
+          <p>Grid Lines:</p>
+          <label>
+            Off
+            <input type="checkbox">
+            <span class="lever"></span>
+            On
+          </label>
+        </div>
+
+        <!-- Hue Change Slider -->
+        <div>
+          <p class="range-field">
+            Hue:
+            <input type="range" id="hueSlider" min="0" max="100" />
+          </p>
+        </div>
+
+        <!-- Saturation Slider -->
+        <div>
+          <p class="range-field">
+            Saturation:
+            <input type="range" id="saturationSlider" min="0" max="100" />
+          </p>
+        </div>
+
+        <!-- Undo/Redo Buttons -->
+        <div>
+          <p>Undo/Redo:</p>
+          <div>
+            <a id="undo-button" class="waves-effect waves-light btn-small"><i class="fas fa-undo"></i></a>
+            <a id="redo-button" class="waves-effect waves-light btn-small"><i class="fas fa-redo"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="grid-container"></div>
+      <div class="controls-right">
+        <!-- Select Pencil Color -->
+        <form>
+          Select Pencil Color:
+          <p>
+            <label>
+              <input name="group1" type="radio" checked />
+              <span>Black</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio" />
+              <span>Red</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio"  />
+              <span>Blue</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio" />
+              <span>Green</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" type="radio" />
+              <span>Yellow</span>
+            </label>
+          </p>
+        </form>
+
+        <!-- New Canvas Button -->
+        <div>
+          <p>Delete + Start New:</p>
+          <a id="new-canvas-button" class="waves-effect waves-light btn-small red"><i class="fas fa-trash-alt"></i></a>
+        </div>
+      </div>
+    </main>
     
+    <footer>
+      <p class="copyright">
+        Created By: Nicholas McCooey |
+        <a href="https://github.com/nmccooey" target="_blank"
+          ><i class="fab fa-github"></i>
+        </a>
+      </p>
+    </footer>
+
+    <script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
   </body>
 </html>
