@@ -12,7 +12,7 @@ html, body {
   -webkit-text-stroke-color: black;
   text-shadow: 2px 2px black;
   margin: 5px;
-  padding: 15px;
+  font-size: 40px;
 }
 
 header {
@@ -123,4 +123,50 @@ footer {
 
 .fa-github:hover {
   color: white;
+}
+
+@media (max-width: 800px) {
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5px;
+  }
+
+  .controls-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    background-color: #fafafa;
+    border: solid black 0.5px;
+    border-radius: 10px;
+    margin: 0px;
+    height: auto;
+  }
+
+  .controls-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0px;
+    width: 500px;
+    background-color: #fafafa;
+    border: solid black 0.5px;
+    border-radius: 10px;
+    height: auto;
+    padding: 10px;
+  }
+
+  .controls-right form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  footer {
+    display: none;
+  }
 }
