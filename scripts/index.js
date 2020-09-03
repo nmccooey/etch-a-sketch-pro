@@ -1,4 +1,5 @@
 const gridContainer = document.querySelector(".grid-container");
+const rainbowColors = ["purple", "blue", "green", "yellow", "orange", "red"];
 let colorChoice = "black";
 let eraseMode = false;
 
@@ -31,8 +32,14 @@ function makeGrid(gridSize) {
         square.style.backgroundColor = "white";
         square.setAttribute("filled", false);
       } else {
-        square.style.backgroundColor = colorChoice;
-        square.setAttribute("filled", true);
+
+        if (colorChoice === "rainbow") {
+          square.style.backgroundColor = rainbowColors[getRandomInt(0, 5)];
+          square.setAttribute("filled", true);
+        } else {
+          square.style.backgroundColor = colorChoice;
+          square.setAttribute("filled", true);
+        }
       }
     });
   });
@@ -134,6 +141,13 @@ function initEventHandlers() {
         }
     });
   });
+}
+
+// Generates a random number between min and max inclusive.
+function getRandomInt(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 makeGrid(16);
