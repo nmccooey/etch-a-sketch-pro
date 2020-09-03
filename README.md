@@ -4,9 +4,12 @@ Web app that allows a user to sketch a picture and adjust levels of shading and 
 User is able to:
   - Add and remove grid lines
   - Adjust hue
-  - Adjust saturation
-  - Delete and create a new canvas with a specific grid size
-  - Change pencil color
-  - Undo/Redo changes
+  - Adjust opacity
+  - Create a new canvas with a specific grid size
+  - Download a PNG picture of their creation
+  - Change pencil color including randomized rainbow
 
-Made with Materialize CSS.
+Libraries used:
+- Materialize CSS
+- Html2Canvas.js
+- Canvas2Image.js
