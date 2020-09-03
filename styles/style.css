@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   height: 100vh;
   box-sizing: content-box;
-  background-color: #e3f2fd;
+  background-color: #FFFFFF;
 }
 
 .title {
@@ -54,7 +54,8 @@ main {
   height: 500px;
   display: grid;
   grid-template-columns: repeat(16, 1fr);
-  outline: solid black 1px;
+  border: solid #0d47a1 6px;
+  border-radius: 10px;
 }
 
 .no-outline > * {
@@ -65,9 +66,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
+  justify-content: center;
   width: 250px;
   margin-right: 10px;
+  background-color: #fafafa;
+  border: solid black 0.5px;
+  border-radius: 10px;
+  height: 500px;
 }
 
 .controls-left > * {
@@ -78,9 +83,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
+  justify-content: center;
   width: 250px;
   margin-left: 10px;
+  background-color: #fafafa;
+  border: solid black 0.5px;
+  border-radius: 10px;
+  height: 500px;
 }
 
 .controls-right > * {
@@ -88,9 +97,9 @@ main {
 }
 
 .square {
-  background-color: white;
+  background-color: #FFFFFF;
   cursor: pointer;
-  outline: solid black 1px;
+  outline: solid black 0.5px;
 }
 
 footer {

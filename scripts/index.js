@@ -1,7 +1,10 @@
 const gridContainer = document.querySelector(".grid-container");
+let colorChoice = "black";
+let eraseMode = false;
 
 // Renders a grid of divs based on size.
 function makeGrid(gridSize) {
+
   // Clear out any html in main.
   gridContainer.innerHTML = "";
 
@@ -9,10 +12,10 @@ function makeGrid(gridSize) {
 
   // Create divs.
   for(let i = 0; i < gridSize; i++) {
-
     for(let j = 0; j < gridSize; j++) {
       const square = document.createElement("div");
       square.classList.add("square");
+      square.setAttribute("filled", false);
     
       square.style.width = (500 / gridSize) + "px";
       square.style.height = (500 / gridSize) + "px";
@@ -20,6 +23,19 @@ function makeGrid(gridSize) {
       fragment.appendChild(square);
     }
   }
+
+  // Set up hover event listeners.
+  fragment.querySelectorAll('.square').forEach(function(square) {
+    square.addEventListener("mouseover", function(){
+      if (eraseMode == true) {
+        square.style.backgroundColor = "white";
+        square.setAttribute("filled", false);
+      } else {
+        square.style.backgroundColor = colorChoice;
+        square.setAttribute("filled", true);
+      }
+    });
+  });
 
   gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
   gridContainer.append(fragment);
@@ -31,7 +47,7 @@ function initEventHandlers() {
     let elem = document.querySelector('.modal');
     let options = {
       inDuration: 500,
-      outDuration: 500,
+      outDuration: 200,
       dismissible: false
     };
 
@@ -62,6 +78,61 @@ function initEventHandlers() {
     } else {
       document.querySelector(".grid-container").classList.remove("no-outline");
     }
+  });
+
+  // Handle color pickers.
+  document.querySelectorAll('.pencil-color').forEach(function(picker) {
+    picker.addEventListener("change", function(){
+      colorChoice = picker.getAttribute("data");
+    });
+  });
+
+  // Handle hue change slider.
+  const hueSlider = document.querySelector("#hue-slider");
+  const colors = ["black", "red", "blue", "green", "yellow"];
+  hueSlider.addEventListener("change", function(){
+    let value = this.value;
+
+    document.querySelectorAll('.square').forEach(function(square) {
+      if (square.getAttribute("filled") === "true") {
+        square.style.backgroundColor = colors[value - 1];
+      }
+    });
+  });
+
+  // Handle opacity change slider.
+  const opacitySlider = document.querySelector("#opacity-slider");
+  opacitySlider.addEventListener("mousemove", function(){
+    let value = this.value;
+    
+    document.querySelectorAll('.square').forEach(function(square) {
+      if (square.getAttribute("filled") === "true") {
+        square.style.opacity = value / 100;
+      }
+    });
+  });
+
+  // Handle erase mode switch.
+  const eraseModeSwitch = document.querySelector("#erase-mode-switch");
+  eraseModeSwitch.addEventListener("click", function(){
+    if (eraseModeSwitch.checked) {
+      // Erase mode TRUE
+      console.log("checked");
+      eraseMode = true;
+    } else {
+      // Erase mode FALSE
+      eraseMode = false;
+    }
+  });
+
+  // Handle Download canvas button.
+  document.querySelector('#download-canvas-button').addEventListener('click', function() {
+    html2canvas(document.querySelector('.grid-container'), {
+        onrendered: function(canvas) {
+            // document.body.appendChild(canvas);
+          return Canvas2Image.saveAsPNG(canvas);
+        }
+    });
   });
 }
 

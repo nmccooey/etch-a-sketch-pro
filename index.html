@@ -35,29 +35,31 @@
           </label>
         </div>
 
+        <!-- Erase mode ON/OFF Switch -->
+        <div class="switch">
+          <p>Erase Mode:</p>
+          <label>
+            Off
+            <input id="erase-mode-switch" type="checkbox">
+            <span class="lever"></span>
+            On
+          </label>
+        </div>
+
         <!-- Hue Change Slider -->
         <div>
           <p class="range-field">
             Hue:
-            <input type="range" id="hueSlider" min="0" max="100" />
+            <input type="range" id="hue-slider" min="1" max="5" value="0" />
           </p>
         </div>
 
-        <!-- Saturation Slider -->
+        <!-- Opacity Slider -->
         <div>
           <p class="range-field">
-            Saturation:
-            <input type="range" id="saturationSlider" min="0" max="100" />
+            Opacity:
+            <input type="range" id="opacity-slider" min="0" max="100" value="100" />
           </p>
-        </div>
-
-        <!-- Undo/Redo Buttons -->
-        <div>
-          <p>Undo/Redo:</p>
-          <div>
-            <a id="undo-button" class="waves-effect waves-light btn-small"><i class="fas fa-undo"></i></a>
-            <a id="redo-button" class="waves-effect waves-light btn-small"><i class="fas fa-redo"></i></a>
-          </div>
         </div>
       </div>
       <div class="grid-container"></div>
@@ -67,31 +69,31 @@
           Select Pencil Color:
           <p>
             <label>
-              <input name="group1" type="radio" checked />
+              <input class="pencil-color" data="black" name="color" type="radio" checked />
               <span>Black</span>
             </label>
           </p>
           <p>
             <label>
-              <input name="group1" type="radio" />
+              <input class="pencil-color" data="red" name="color" type="radio" />
               <span>Red</span>
             </label>
           </p>
           <p>
             <label>
-              <input name="group1" type="radio"  />
+              <input class="pencil-color" data="blue" name="color" type="radio"  />
               <span>Blue</span>
             </label>
           </p>
           <p>
             <label>
-              <input name="group1" type="radio" />
+              <input class="pencil-color" data="green" name="color" type="radio" />
               <span>Green</span>
             </label>
           </p>
           <p>
             <label>
-              <input name="group1" type="radio" />
+              <input class="pencil-color" data="yellow" name="color" type="radio" />
               <span>Yellow</span>
             </label>
           </p>
@@ -99,13 +101,14 @@
 
         <!-- New Canvas Button Modal Trigger -->
         <div>
-          <p>New Canvas:</p>
-          <a id="new-canvas-button" data-target="modal1" class="waves-effect waves-light btn modal-trigger"><i class="fas fa-plus-square"></i></a>
+          <p>New Canvas/Download</p>
+          <a id="new-canvas-button" data-target="modal1" class="waves-effect waves-light btn modal-trigger red"><i class="fas fa-plus-square"></i></a>
+          <button id="download-canvas-button">Download</button>
         </div>
       </div>
 
       <!-- Modal Structure -->
-      <div id="modal1" class="modal">
+      <div id="canvas-modal" class="modal">
         <div class="modal-content">
           <h4>Choose Canvas Size:</h4>
           <input id="canvas-size" value="16" type="number" min="16" max="64">
@@ -128,6 +131,8 @@
     </footer>
 
     <script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
   </body>
 </html>
