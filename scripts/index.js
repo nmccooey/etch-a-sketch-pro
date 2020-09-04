@@ -1,6 +1,6 @@
 const gridContainer = document.querySelector(".grid-container");
 const rainbowColors = ["purple", "blue", "green", "yellow", "orange", "red"];
-let colorChoice = "black";
+let colorChoice = "#1C1A1A";
 let eraseMode = false;
 
 // Renders a grid of divs based on size.
@@ -43,7 +43,7 @@ function makeGrid(gridSize) {
       }
     });
   });
-  
+
   gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
   gridContainer.append(fragment);
 }
@@ -105,14 +105,8 @@ function initEventHandlers() {
     let value = this.value;
 
     document.querySelectorAll('.square').forEach(function(square) {
-      if (square.getAttribute("filled") === "true" && value != 0) {
-        if(value > 510) {
-          square.style.backgroundColor = `rgb(255,255,${value % 510}`;
-        } else if (value > 255) {
-          square.style.backgroundColor = `rgb(255,${value % 255},0`;
-        } else {
-          square.style.backgroundColor = `rgb(${value},0,0`;
-        }
+      if (square.getAttribute("filled") === "true") {
+        square.style.filter = `hue-rotate(${value * 10}deg)`;
       }
     });
   });
@@ -125,6 +119,18 @@ function initEventHandlers() {
     document.querySelectorAll('.square').forEach(function(square) {
       if (square.getAttribute("filled") === "true") {
         square.style.opacity = value / 100;
+      }
+    });
+  });
+
+  // Handle saturation change slider.
+  const saturationSlider = document.querySelector("#saturation-slider");
+  saturationSlider.addEventListener("mousemove", function(){
+    let value = this.value;
+
+    document.querySelectorAll('.square').forEach(function(square) {
+      if (square.getAttribute("filled") === "true") {
+        square.style.filter = `saturate(${value * 10}%)`;
       }
     });
   });

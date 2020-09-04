@@ -99,7 +99,7 @@ main {
 .square {
   background-color: #FFFFFF;
   cursor: pointer;
-  outline: solid black 0.5px;
+  outline: solid lightgray 0.5px;
 }
 
 footer {
