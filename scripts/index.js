@@ -69,13 +69,18 @@ function initEventHandlers() {
         makeGrid(gridSize);
         instance.close();
       } else {
-        M.toast(
-          {html: 'Must be a valid size.',
-          classes: 'rounded red',
-          displayLength: 1500});
+        makeErrorToast("Must be a valid size", 1500);
       }
     });
   });
+
+  // Creates a Toast.
+  function makeErrorToast(html, displayLength) {
+    M.toast(
+      {html: html,
+      classes: 'rounded red',
+      displayLength: displayLength});
+  }
 
   // Handle grid Line ON/OFF Switch
   const gridLineSwitch = document.querySelector("#grid-line-switch");
