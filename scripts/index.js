@@ -1,6 +1,6 @@
 const gridContainer = document.querySelector(".grid-container");
 const rainbowColors = ["#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff", "#4b0082", "#ee82ee"];
-let colorChoice = "#1C1A1A";
+let colorChoice = "darkblue";
 let eraseMode = false;
 
 // Renders a grid of divs based on size.
