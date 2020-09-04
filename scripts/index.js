@@ -43,7 +43,7 @@ function makeGrid(gridSize) {
       }
     });
   });
-
+  
   gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
   gridContainer.append(fragment);
 }
@@ -101,13 +101,18 @@ function initEventHandlers() {
 
   // Handle hue change slider.
   const hueSlider = document.querySelector("#hue-slider");
-  const colors = ["black", "red", "blue", "green", "yellow"];
-  hueSlider.addEventListener("change", function(){
+  hueSlider.addEventListener("mousemove", function(){
     let value = this.value;
 
     document.querySelectorAll('.square').forEach(function(square) {
-      if (square.getAttribute("filled") === "true") {
-        square.style.backgroundColor = colors[value - 1];
+      if (square.getAttribute("filled") === "true" && value != 0) {
+        if(value > 510) {
+          square.style.backgroundColor = `rgb(255,255,${value % 510}`;
+        } else if (value > 255) {
+          square.style.backgroundColor = `rgb(255,${value % 255},0`;
+        } else {
+          square.style.backgroundColor = `rgb(${value},0,0`;
+        }
       }
     });
   });
@@ -129,7 +134,6 @@ function initEventHandlers() {
   eraseModeSwitch.addEventListener("click", function(){
     if (eraseModeSwitch.checked) {
       // Erase mode TRUE
-      console.log("checked");
       eraseMode = true;
     } else {
       // Erase mode FALSE
