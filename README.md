@@ -4,6 +4,7 @@ Web app that allows a user to sketch a picture and adjust levels of shading and 
 User is able to:
   - Add and remove grid lines
   - Adjust hue
+  - Adjust saturation
   - Adjust opacity
   - Create a new canvas with a specific grid size
   - Download a PNG picture of their creation

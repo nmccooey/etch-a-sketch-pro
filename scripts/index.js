@@ -1,5 +1,5 @@
 const gridContainer = document.querySelector(".grid-container");
-const rainbowColors = ["purple", "blue", "green", "yellow", "orange", "red"];
+const rainbowColors = ["#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff", "#4b0082", "#ee82ee"];
 let colorChoice = "#1C1A1A";
 let eraseMode = false;
 
@@ -34,7 +34,7 @@ function makeGrid(gridSize) {
       } else {
 
         if (colorChoice === "rainbow") {
-          square.style.backgroundColor = rainbowColors[getRandomInt(0, 5)];
+          square.style.backgroundColor = rainbowColors[getRandomInt(0, rainbowColors.length - 1)];
           square.setAttribute("filled", true);
         } else {
           square.style.backgroundColor = colorChoice;
