@@ -102,6 +102,20 @@ main {
   outline: solid lightgray 0.5px;
 }
 
+#erase-mode-flag {
+  display: none;
+  text-align: center;
+  margin-top: 5px;
+}
+
+#erase-mode-flag p {
+  display: inline-block;
+  margin: 0px;
+  padding: 5px;
+  background-color: rgb(255, 71, 71);
+  border-radius: 10px;
+}
+
 footer {
   position: fixed;
   left: 0;

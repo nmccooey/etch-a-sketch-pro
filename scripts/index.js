@@ -137,13 +137,16 @@ function initEventHandlers() {
 
   // Handle erase mode switch.
   const eraseModeSwitch = document.querySelector("#erase-mode-switch");
+  const eraseModeFlag = document.querySelector("#erase-mode-flag");
   eraseModeSwitch.addEventListener("click", function(){
     if (eraseModeSwitch.checked) {
       // Erase mode TRUE
       eraseMode = true;
+      eraseModeFlag.style.display = "block";
     } else {
       // Erase mode FALSE
       eraseMode = false;
+      eraseModeFlag.style.display = "none";
     }
   });
 
