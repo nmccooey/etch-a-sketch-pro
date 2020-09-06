@@ -2,6 +2,7 @@ const gridContainer = document.querySelector(".grid-container");
 const rainbowColors = ["#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff", "#4b0082", "#ee82ee"];
 let colorChoice = "darkblue";
 let eraseMode = false;
+let mousedown = false;
 
 // Renders a grid of divs based on size.
 function makeGrid(gridSize) {
@@ -32,6 +33,12 @@ function makeGrid(gridSize) {
         square.style.backgroundColor = "white";
         square.setAttribute("filled", false);
       } else {
+
+        // If square is already filled reset sat, and opacity for that square.
+        if (square.getAttribute("filled") === "true") {
+          square.style.filter = `none`;
+          square.style.opacity = 100;
+        }
 
         if (colorChoice === "rainbow") {
           square.style.backgroundColor = rainbowColors[getRandomInt(0, rainbowColors.length - 1)];
@@ -105,7 +112,7 @@ function initEventHandlers() {
     let value = this.value;
 
     document.querySelectorAll('.square').forEach(function(square) {
-      if (square.getAttribute("filled") === "true") {
+      if (square.getAttribute("filled") === "true" && mousedown) {
         square.style.filter = `hue-rotate(${value * 10}deg)`;
       }
     });
@@ -117,7 +124,7 @@ function initEventHandlers() {
     let value = this.value;
     
     document.querySelectorAll('.square').forEach(function(square) {
-      if (square.getAttribute("filled") === "true") {
+      if (square.getAttribute("filled") === "true" && mousedown) {
         square.style.opacity = value / 100;
       }
     });
@@ -129,7 +136,7 @@ function initEventHandlers() {
     let value = this.value;
 
     document.querySelectorAll('.square').forEach(function(square) {
-      if (square.getAttribute("filled") === "true") {
+      if (square.getAttribute("filled") === "true" && mousedown) {
         square.style.filter = `saturate(${value * 10}%)`;
       }
     });
@@ -158,6 +165,16 @@ function initEventHandlers() {
           return Canvas2Image.saveAsPNG(canvas);
         }
     });
+  });
+
+  // Handle mousedown and mouseup event.
+  document.addEventListener("mousedown", function(){
+    mousedown = true;
+  });
+
+  // Handle mousedown and mouseup event.
+  document.addEventListener("mouseup", function(){
+    mousedown = false;
   });
 }
 
